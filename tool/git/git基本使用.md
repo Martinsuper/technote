@@ -1,4 +1,19 @@
 # git基本概念和使用
+::: tip 目标：
+* 在github或gitee上创建一个自己的代码仓库（可以创建一个私密仓库）
+* 添加ssh秘钥到git平台上，实现免密下载更新代码
+* 学会使用git的基本命令，会提交代码到代码仓库，更新本地代码
+* 设置git提交的用户名和邮箱信息
+* 查看添加删除远程仓库
+:::
+> git 提交代码，首先是要 `git add` 提交到缓存区，然后`git commit`提交到本地仓库，最后通过`git push` 命令提交到远程仓库
+> git 更新代码主要是，`git pull` 下拉代码到本地
+
+## 基本概念
+工作区：我们可见的代码
+缓存区：`git add` 操作后，自动把代码放到缓存区中，当我们修改代码也是放到缓存区
+本地仓库：`git commit` 操作后，自动把代码提交到本地仓库，这个时候还没有提交到远程仓库
+远程仓库：`git push` 操作是把本地仓库的代码提交到远程仓库
 
 ## 常用命令
 
@@ -48,7 +63,14 @@ git clone git@gitee.com:martind/go.git
 # origin是本地仓库名，可以是其他的名字，master是分支名，这里是主分支
 git pull origin master
 ```
-
+添加代码到缓存
+```bash
+git add filename
+```
+提交代码到本地仓库
+```bash
+git commit -m "提交信息"
+```
 提交代码
 ```bash
 git push -u origin master
