@@ -3,13 +3,32 @@
 ## collection 接口
 > collection是一个根接口
 
-```mermaid
+<mermaid>
 graph TD
-a(Collection) --继承--> b1(List)
-a --继承--> b2(Set)
-a --继承--> b3(Queue)
-a --继承--> b4[AbstractList]
-```
+a(Collection) --extends--> b1(List)
+a --extends--> b2(Set)
+a --extends--> b3(Queue)
+a --extends--> b4[AbstractCollection]
+b1 --implements--> c1(AbsrtactList)
+b4 --extends--> c1
+c1 --extends--> d1(ArrayList)
+b1 --implements--> d1
+c1 --extends--> d2(AbstractSequentialList)
+d2 --extends--> e1(LinkedList)
+b1 --implements--> e1
+c1 --extends--> e2(Vector)
+b1 --implements--> e2
+e2 --extends--> e3(Stack)
+b2 --extends--> c3(SortedSet)
+b2 --implements--> c2(AbstractSet)
+b4 --extends--> c2
+c2 --extends--> d3(HashSet)
+b2 --implements--> d3
+c2 --extends--> d4(TreeSet)
+c3 --> d4
+d3 --extends--> e4(LinkedHashSet)
+b2 --implements--> e4
+</mermaid>
 ::: tip 抽象方法
 * `abstract` 抽象方法，不能直接调用抽象方法，不能实例化。
 * 不能被`private`修饰，因为抽象方法必须被子类实现，而private对于子类来说没有办法访问，所以会产生矛盾
@@ -141,6 +160,56 @@ a --> b3(LinkedHashSet)
 
 > 为快速查找设计的Set，存入HashCode的元素必须定义hashCode()
 
+`add(E e)`：如果set中不包含指定元素，则添加指定元素
+
+`clear()`：从set中移除所有元素
+
+`clone()`：返回此HashSet实例的浅表副本：并没有复制这些元素本身
+
+`contains(Object o)`：如果set包含指定元素，返回true
+
+`isEmpty()`：如果此set不包含任何元素，则返回true
+
+#### TreeSet
+
+> 保持次序的Set，底层为树结构。使用它可以从Set中提取有序的序列。元素必须实现Comparable接口
+
+
+
+`ceiling(E e)`：返回此set中大于等于给定元素的最小元素；如果不存在这样的对象，则返回null
+
+`clone()`：返回`TreeSet`实例的浅表副本
+
+`descendingIterator()`：返回此set元素上按降序进行迭代的迭代器
+
+`descendingSet()`：返回此set中包含元素的逆序视图
+
+`first()`：返回此set中当前第一个（最低）元素
+
+`floor(E e)`：返回此set中小于等于给定元素的最大元素；如果不存在这样的元素，则返回null；
+
+`headSet(E toElement)`：返回此set的部分视图，其元素严格小于toElement
+
+
+`headSet(E toElement, boolean inclusive)`：返回此 set 的部分视图，其元素小于（或等于，如果 inclusive 为 true）toElement。
+
+`higher(E e)`：返回此 set 中严格大于给定元素的最小元素；如果不存在这样的元素，则返回 null。
+
+`last() `：返回此 set 中当前最后一个（最高）元素。
+
+`lower(E e)` ：返回此 set 中严格小于给定元素的最大元素；如果不存在这样的元素，则返回 null。
+`pollFirst()` ：获取并移除第一个（最低）元素；如果此 set 为空，则返回 null。
+`pollLast()` ：获取并移除最后一个（最高）元素；如果此 set 为空，则返回 null。
+`subSet(E fromElement, boolean fromInclusive, E toElement, boolean toInclusive)` ：返回此 set 的部分视图，其元素范围从 fromElement 到 toElement。
+`subSet(E fromElement, E toElement)` ：返回此 set 的部分视图，其元素从 fromElement（包括）到 toElement（不包括）
+
+`tailSet(E fromElement)` ：返回此 set 的部分视图，其元素大于等于 fromElement。
+`tailSet(E fromElement, boolean inclusive)` ：返回此 set 的部分视图，其元素大于（或等于，如果 inclusive 为 true）fromElement。
+
+#### LinkedHashSet
+
+> 具有`HashSet`的查询速度，且内部使用链表维护元素的顺序。于是在使用迭代器遍历Set时，结果会按元素插入的次序显示。元素也必须定义`hashCode()`方法
+
 ### Queue接口
 
 > 除了包含基本的Collection操作外，还提供一下操作：
@@ -155,8 +224,8 @@ a --> b3(LinkedHashSet)
 
 `poll()`，获取并移除此队列的头；如果此队列为空，则返回null
 
-`remove()`，获取并移除此队列的头
-
 ### AbstractCollection接口
 
 > 提供Collection接口的骨干实现，最大限度地减少实现此接口的工作量
+
+
