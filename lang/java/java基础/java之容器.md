@@ -29,6 +29,8 @@ c3 --> d4
 d3 --extends--> e4(LinkedHashSet)
 b2 --implements--> e4
 </mermaid>
+
+
 ::: tip 抽象方法
 * `abstract` 抽象方法，不能直接调用抽象方法，不能实例化。
 * 不能被`private`修饰，因为抽象方法必须被子类实现，而private对于子类来说没有办法访问，所以会产生矛盾
