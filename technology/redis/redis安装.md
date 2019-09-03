@@ -2,7 +2,6 @@
 
 ## 1 docker安装redis
 
-### 1.1 redis单机模式
 
 ```bash
 docker pull redis &&
@@ -12,13 +11,9 @@ docker run -p 6379:6379 -v $PWD/redis/redis.conf:/usr/local/etc/redis/redis.conf
 ```
 
 
-
-
 ## 2 编译安装redis
 
-### 1.1 单机模式
 
-#### 1.1.1 编译安装
 
 ```bash
 wget http://download.redis.io/releases/redis-5.0.5.tar.gz &&
@@ -29,7 +24,7 @@ make PREFIX=/usr/local/redis install
 cp redis.conf /usr/local/redis # 把redis配置文件直接拷贝到redis安装目录下
 ```
 
-#### 1.1.2 运行
+### 运行
 
 ```
 ./redis-server redis.conf
@@ -37,7 +32,7 @@ cp redis.conf /usr/local/redis # 把redis配置文件直接拷贝到redis安装�
 
 
 
-### 1.2 主从模式
+### 伪分布式
 
 伪分布式模式，创建多个文件夹
 
