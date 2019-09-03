@@ -1,11 +1,5 @@
 # redis 使用
 
-- [ ] redis 基本概念
-- [ ] redis 基本使用
-- [ ] redis 源码学习
-
-
-
 ## redis基本概念
 
 ### redis 基本数据类型

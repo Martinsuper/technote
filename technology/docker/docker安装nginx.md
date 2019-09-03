@@ -30,9 +30,8 @@ mkdir -p nginx/conf nginx/conf.d nginx/logs
 从docker拷贝配置文件
 
 ```shell
-docker cp test:/etc/nginx/nginx.conf $PWD/conf/nginx.conf
-docker cp test:/etc/nginx/conf.d/default.conf $PWD/conf.d/default.conf
-docker cp test:/var/log/nginx $PWD/logs
+docker cp test:/etc/nginx $PWD/conf/
+docker cp test:/var/log/nginx/ $PWD/conf/logs/
 docker cp test:/usr/share/nginx/html $PWD/
 ```
 
@@ -68,12 +67,10 @@ server {
 ```
 docker pull nginx &&
 docker run --name test -d nginx &&
-mkdir -p nginx/conf nginx/conf.d nginx/logs &&
-docker cp test:/etc/nginx/nginx.conf $PWD/nginx/conf/nginx.conf &&
-docker cp test:/var/log/nginx $PWD/nginx/logs &&
-docker cp test:/etc/nginx/conf.d/default.conf $PWD/nginx/conf.d/default.conf
-docker cp test:/usr/share/nginx/html $PWD/nginx/ &&
-docker run -p 8080:80 --name mynginx -v $PWD/nginx/html:/usr/share/nginx/html -v $PWD/nginx/conf/nginx.conf:/etc/nginx/nginx.conf -v $PWD/nginx/logs/nginx:/var/log/nginx -v $PWD/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf -v $PWD/nginx/logs/nginx:/var/log/nginx -d nginx
+docker cp test:/etc/nginx/ $PWD/conf &&
+docker cp test:/var/log/nginx/ $PWD/logs &&
+docker cp test:/usr/share/nginx/html $PWD/ &&
+docker run -p 80:80 --name mynginx -v $PWD/html:/usr/share/nginx/html -v $PWD/conf:/etc/nginx -v $PWD/logs:/var/log/nginx -d nginx
 ```
 
 
