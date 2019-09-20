@@ -10,7 +10,7 @@ rabbitmq-server start
 
 ```bash
 # 查看已安装插件列表
-rabbitmq-plugins list
+rabbitmq-plugins list 
 # 启用管控台,管理端口是15672
 rabbitmq-plugins enable rabbitmq_management
 ```
