@@ -29,9 +29,6 @@ cp redis.conf /usr/local/redis # 把redis配置文件直接拷贝到redis安装�
 ```
 ./redis-server redis.conf
 ```
-
-
-
 ### 伪分布式
 
 伪分布式模式，创建多个文件夹
