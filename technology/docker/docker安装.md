@@ -48,4 +48,7 @@ sudo systemctl enable docker.service &&
 sudo systemctl start docker.service &&
 sudo usermod -aG docker $(whoami)
 ```
-
+docker安装脚本
+```bash
+curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
+```
