@@ -19,3 +19,7 @@ ssh-keygen -t rsa -C "mrtduan@gmail.com"
 ssh root@ip "echo \"`cat ~/.ssh/id_rsa.pub`\" >> .ssh/authorized_keys"
 ```
 
+查看可用安装包
+```bash
+apt-cache search java
+```
