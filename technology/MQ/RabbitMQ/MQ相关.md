@@ -7,8 +7,11 @@ MQ即消息队列，利用高效可靠的消息传递机制进行与平台无关
 | MQ名称 | 开发语言 | 优点 | 缺点 | 并发量 |
 |:-:|:-:|:-:| :-: | :-: |
 | RabbitMQ | erlang ||||
-| Kafka | ||||
-|  | ||||
+| Kafka | scala ||||
+| ActiveMQ | java ||||
+| RocketMQ | java ||||
+
+
 ## RabbitMQ
 
 ## Kafka
