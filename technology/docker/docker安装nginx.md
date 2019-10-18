@@ -70,6 +70,7 @@ docker run --name test -d nginx &&
 docker cp test:/etc/nginx/ $PWD/conf &&
 docker cp test:/var/log/nginx/ $PWD/logs &&
 docker cp test:/usr/share/nginx/html $PWD/ &&
+docker stop test && docker rm test &&
 docker run -p 80:80 --name mynginx -v $PWD/html:/usr/share/nginx/html -v $PWD/conf:/etc/nginx -v $PWD/logs:/var/log/nginx -d nginx
 ```
 

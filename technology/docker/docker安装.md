@@ -52,3 +52,6 @@ docker安装脚本
 ```bash
 curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
 ```
+
+package docker-ce-3:19.03.3-3.el7.x86_64 requires containerd.io >= 1.2.2-3, but none of the providers can be installed
+
