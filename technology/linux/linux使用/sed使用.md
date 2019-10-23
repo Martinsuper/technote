@@ -9,4 +9,8 @@ sed -i '4 i\要添加的内容' t.txt
 sed -i '2 c\替换后的内容' t.txt
 # 最后一行添加内容（如果有环境变量的话不用用\转义符，不然会当做普通字符处理的）
 sed -i "\$a ${tmp}" t.txt
+# 查找某一行内容（12行）
+sed -n '12p' zoo.cfg
+# 匹配内容前添加一行
+ sed -i '/allow linux.com/i\allow linux.cn' the.conf.file
 ```
